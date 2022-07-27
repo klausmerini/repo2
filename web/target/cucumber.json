@@ -1,0 +1,122 @@
+[
+  {
+    "comments": [
+      {
+        "line": 1,
+        "value": "#language: pt"
+      },
+      {
+        "line": 2,
+        "value": "#Author: Rafael Lima"
+      },
+      {
+        "line": 3,
+        "value": "#Version: 1.0"
+      },
+      {
+        "line": 4,
+        "value": "#Encoding: UTF-8"
+      }
+    ],
+    "line": 7,
+    "elements": [
+      {
+        "before": [
+          {
+            "result": {
+              "duration": 2377541300,
+              "status": "passed"
+            },
+            "match": {
+              "location": "Hooks.beforeScenario(Scenario)"
+            }
+          }
+        ],
+        "line": 25,
+        "name": "Logar usuario",
+        "description": "",
+        "id": "comprar-livro;logar-usuario",
+        "after": [
+          {
+            "result": {
+              "duration": 1001554700,
+              "status": "passed"
+            },
+            "match": {
+              "location": "Hooks.afterScenario(Scenario)"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Cenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 9743976400,
+              "status": "passed"
+            },
+            "line": 26,
+            "name": "que estou no site demowebshop",
+            "match": {
+              "location": "CompraLivroSteps.que_estou_no_site_demowebshop()"
+            },
+            "keyword": "Dado "
+          },
+          {
+            "result": {
+              "duration": 6062951600,
+              "status": "passed"
+            },
+            "line": 27,
+            "name": "clico em login",
+            "match": {
+              "location": "LoginCarrinhoSteps.clico_em_login()"
+            },
+            "keyword": "E "
+          },
+          {
+            "result": {
+              "duration": 1085537700,
+              "status": "passed"
+            },
+            "line": 28,
+            "name": "preencho os campos de login corretamente",
+            "match": {
+              "location": "LoginCarrinhoSteps.preencho_os_campos_de_login_corretamente()"
+            },
+            "keyword": "Entao "
+          },
+          {
+            "result": {
+              "duration": 139200,
+              "status": "passed"
+            },
+            "line": 29,
+            "name": "site loga usuario com sucesso",
+            "match": {
+              "location": "LoginCarrinhoSteps.site_loga_usuario_com_sucesso()"
+            },
+            "keyword": "Entao "
+          }
+        ],
+        "tags": [
+          {
+            "line": 24,
+            "name": "@login"
+          }
+        ]
+      }
+    ],
+    "name": "Comprar livro",
+    "description": "",
+    "id": "comprar-livro",
+    "keyword": "Funcionalidade",
+    "uri": "login.feature",
+    "tags": [
+      {
+        "line": 6,
+        "name": "@funcionalidades"
+      }
+    ]
+  }
+]
