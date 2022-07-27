@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Cucumber</title>
+	<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+	<style>
+.cucumber-react .cucumber-status--passed {
+  color: #2CB14A;
+}
+.cucumber-react .cucumber-status--skipped {
+  color: #00A0CC;
+}
+.cucumber-react .cucumber-status--pending {
+  color: #FFAD33;
+}
+.cucumber-react .cucumber-status--undefined {
+  color: #FFAD33;
+}
+.cucumber-react .cucumber-status--ambiguous {
+  color: #F4EBFD;
+}
+.cucumber-react .cucumber-status--failed {
+  color: #BB0000;
+}
+.cucumber-react .cucumber-status--unknown {
+  color: #B6BECB;
+}
+.cucumber-react h1, .cucumber-react h2, .cucumber-react h3 {
+  padding: 0;
+  margin: 0;
+}
+.cucumber-react a {
+  color: inherit;
+}
+.cucumber-react .gherkin-document-list {
+  font: 14px "Open Sans", sans-serif;
+  color: #161C24;
+  background: #fff;
+  overflow-x: hidden;
+}
+.cucumber-react .cucumber-title {
+  margin-top: 0.3em;
+  margin-bottom: 0;
+  display: inline-block;
+}
+.cucumber-react .cucumber-title__keyword {
+  font-weight: bold;
+}
+.cucumber-react .cucumber-title__text {
+  font-weight: normal;
+}
+.cucumber-react .cucumber-tags {
+  padding: 0;
+  margin-bottom: 0;
+}
+.cucumber-react .cucumber-tags .cucumber-tag {
+  display: inline;
+  list-style-type: none;
+  padding: 4px 8px 4px 8px;
+  margin-right: 6px;
+  background-color: #FFFFFF;
+  border-radius: 6px;
+}
+.cucumber-react .cucumber-feature__icon {
+  padding-top: 0.35em;
+  padding-right: 0.5em;
+}
+.cucumber-react .cucumber-description,
+.cucumber-react .cucumber-children {
+  margin-left: 1em;
+}
+.cucumber-react .cucumber-feature,
+.cucumber-react .cucumber-rule,
+.cucumber-react .cucumber-scenario,
+.cucumber-react .cucumber-background {
+  margin-bottom: 1em;
+}
+.cucumber-react .cucumber-steps {
+  list-style-type: none;
+  padding-left: 10px;
+}
+.cucumber-react .cucumber-steps .cucumber-step {
+  display: flex;
+}
+.cucumber-react .cucumber-steps .cucumber-step__status {
+  padding-top: 0.2em;
+  padding-right: 0.5em;
+}
+.cucumber-react .cucumber-steps .cucumber-step__content {
+  flex-grow: 1;
+  max-width: calc(100% - 1.5em);
+}
+.cucumber-react .cucumber-steps .cucumber-step__keyword {
+  font-weight: bold;
+}
+.cucumber-react .cucumber-steps .cucumber-step__text {
+  font-weight: normal;
+}
+.cucumber-react .cucumber-steps .cucumber-step__param {
+  font-weight: normal;
+  font-style: italic;
+}
+.cucumber-react .cucumber-table {
+  border-collapse: collapse;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+.cucumber-react .cucumber-table__header-cell {
+  border: 1px solid #4B5662;
+  padding: 0.3em;
+}
+.cucumber-react .cucumber-table__cell {
+  border: 1px solid #4B5662;
+  padding: 0.3em;
+}
+.cucumber-react .cucumber-table__cell__status {
+  padding: 0.5em 3px 3px 3px;
+}
+.cucumber-react .cucumber-table__cell__step {
+  flex-grow: 1;
+}
+.cucumber-react .cucumber-code {
+  padding: 0.25em;
+  background-color: #ebebeb;
+}
+.cucumber-react .cucumber-error {
+  padding: 0.5em;
+  margin: 0;
+  overflow-x: auto;
+}
+.cucumber-react .cucumber-no-documents {
+  font: 14px "Open Sans", sans-serif;
+}
+.cucumber-react .cucumber-attachment__icon {
+  margin-right: 0.5em;
+}
+.cucumber-react .cucumber-attachment__image {
+  max-width: 100%;
+  margin-top: 1em;
+}
+.cucumber-react .cucumber-attachment__text {
+  background-color: #ebebeb;
+  padding: 0.5em;
+  overflow-x: auto;
+}
+.cucumber-react .cucumber-anchor {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-top: 0.3em;
+}
+.cucumber-react .cucumber-anchor__link {
+  opacity: 0;
+  transition: all 0.35s ease-in-out;
+  position: absolute;
+  left: -20px;
+  display: flex;
+  align-items: center;
+}
+.cucumber-react .cucumber-anchor__icon {
+  margin-right: 0.5em;
+}
+.cucumber-react .cucumber-anchor:hover a {
+  opacity: 1;
+  width: max-content;
+  transition: all 0.35s ease-in-out;
+}
+.cucumber-react .cucumber-anchor > * {
+  height: 100%;
+  margin-top: 0px;
+}
+
+.cucumber-report-header {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  font: 11px "Open Sans", sans-serif;
+  margin-bottom: 1em;
+}
+.cucumber-report-header > * {
+  padding: 1em;
+}
+.cucumber-report-header .cucumber-status-filter {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+.cucumber-report-header .cucumber-status-filter table {
+  width: 100%;
+}
+.cucumber-report-header .cucumber-execution-data {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+.cucumber-report-header .cucumber-search-bar {
+  border-right: 0;
+}
+.cucumber-report-header .cucumber-search-bar form.cucumber-search-bar-search {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 9fr 1fr;
+}
+.cucumber-report-header .cucumber-search-bar form.cucumber-search-bar-search input {
+  padding: 0.4em;
+  border-radius: 0;
+}
+.cucumber-report-header .cucumber-search-bar form.cucumber-search-bar-search button {
+  height: 2.2em;
+  padding-left: 0.6em;
+  padding-right: 0.6em;
+}
+.cucumber-report-header .cucumber-search-bar p.help {
+  font-size: 80%;
+}
+.cucumber-report-header .cucumber-search-bar form.cucumber-search-bar-filter ul {
+  display: inline;
+}
+.cucumber-report-header .cucumber-search-bar form.cucumber-search-bar-filter ul li {
+  list-style-type: none;
+  display: inline-block;
+}
+.cucumber-report-header .cucumber-search-bar form.cucumber-search-bar-filter ul li input {
+  display: inline-block;
+  width: auto;
+  height: 0.6em;
+}
+.cucumber-report-header .cucumber-search-bar form.cucumber-search-bar-filter ul li label {
+  padding-right: 1em;
+}
+
+@media only screen and (min-width: 600px) {
+  .cucumber-report-header {
+    grid-template-columns: 1fr 1fr;
+  }
+  .cucumber-report-header .cucumber-status-filter {
+    border-right: 1px solid rgba(0, 0, 0, 0.1);
+  }
+  .cucumber-report-header .cucumber-search-bar {
+    grid-column: 1/-1;
+  }
+}
+@media only screen and (min-width: 992px) {
+  .cucumber-report-header {
+    grid-template-columns: 1fr 1fr 2fr;
+  }
+  .cucumber-report-header .cucumber-status-filter {
+    border-bottom: 0;
+  }
+  .cucumber-report-header .cucumber-execution-data {
+    border-right: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 0;
+  }
+  .cucumber-report-header .cucumber-search-bar {
+    grid-column: auto;
+  }
+}
+.accordion {
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 2px;
+}
+
+.accordion__item + .accordion__item {
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.accordion__button {
+    background-color: #f4f4f4;
+    color: #444;
+    cursor: pointer;
+    padding: 10px;
+    width: 100%;
+    text-align: left;
+    border: none;
+}
+
+.accordion__button:hover {
+    background-color: #ddd;
+}
+
+.accordion__button:before {
+    display: inline-block;
+    content: '';
+    height: 10px;
+    width: 10px;
+    margin-right: 12px;
+    border-bottom: 2px solid currentColor;
+    border-right: 2px solid currentColor;
+    transform: rotate(-45deg);
+}
+
+.accordion__button[aria-expanded='true']::before,
+.accordion__button[aria-selected='true']::before {
+    transform: rotate(45deg);
+}
+
+.accordion__panel {
+    padding: 20px;
+    animation: fadein 0.35s ease-in;
+}
+
+	</style>
+</head>
+<body>
+<div id="content">
+</div>
+<script>
+window.CUCUMBER_MESSAGES = [{"meta":{"protocolVersion":"14.0.1","implementation":{"name":"cucumber-jvm","version":"6.10.2"},"runtime":{"name":"OpenJDK 64-Bit Server VM","version":"15.0.2+7"},"os":{"name":"Windows 10"},"cpu":{"name":"amd64"}}},{"testRunStarted":{"timestamp":{"seconds":"1658432025","nanos":423470800}}},{"source":{"uri":"file:///C:/Users/KlausCastanhaMerini/Documents/aula01/aula01/src/test/resources/features/Correios.feature","data":"# Author:Marcelo Ribelato\n# Version:1.0\n\n@Correios @regressivo\nFeature: : Calcular o valor do frete\n  Afim de calcular o valor do frete eu como usuario da API dos correis envio request com dados de origem\n  e caracteristicos para saber o valor total do frete e o tempo de entrega\n\n  @frete\n  Scenario: calculando o valor do frete com dados validos\n    Given que possuo um token valido\n    When envio um request com dados validos\n    Then o valor do frete deve ser calculado\n    And o status code deve ser 200\n\n\n  @freteDataTable\n  Scenario: calculando o valor do frete com dados validos\n    Given que possuo um token valido\n    When envio um request com dados validos DataTable\n      | sCepOrigem | sCepDestino | nVlPeso | nVlComprimento | nVlAltura | nVlLargura |\n      | 74371520   | 1327000     | 3.00    | 40.00          | 20.00     | 25         |\n    Then o valor do frete deve ser \"40,60\"\n    And o status code deve ser 200\n\n\n  @freteEsquemaDeCenario\n  Scenario: calculando o valor do frete com dados validos esquema de cenario\n    Given que possuo um token valido\n    When envio um request com dados \"\u003csCepOrigem\u003e\",\"\u003csCepDestino\u003e\"\n    Then o valor do frete deve ser \"\u003cvalorFrete\u003e\"\n    And o status code deve ser 200\n\n    Examples:\n      | sCepOrigem | sCepDestino | valorFrete |\n      | 74371520   | 1327000     | 31,00      |\n      | 13175613   | 74371520    | 24,80      |\n\n\n  @freteEsquemaCenario\n  Scenario Template: calculando o valor do frete com dados invalidos\n    Given que possuo um token valido\n    When envio um request com dados \"\u003csCepOrigem\u003e\",\"\u003csCepDestino\u003e\"\n    Then deve ser exibida a \"\u003cmsg\u003e\"\n    And o status code deve ser 200\n\n    @freteEsquemaCenarioOrigem\n    Examples:\n      | sCepOrigem | sCepDestino | msg                                                                                                    |\n      | 1317561X   | 74371520    | Não foi encontrada precificação. MSG-101: O valor do(s) parâmetro(s) cepOrigem é(são) inválido(s)(-1). |\n\n    @freteEsquemaCenarioDestino\n    Examples:\n      | sCepOrigem | sCepDestino | msg                                                                                                     |\n      | 13175613   | 7437152X    | Não foi encontrada precificação. MSG-101: O valor do(s) parâmetro(s) cepDestino é(são) inválido(s)(-1). |","mediaType":"text/x.cucumber.gherkin+plain"}},{"gherkinDocument":{"uri":"file:///C:/Users/KlausCastanhaMerini/Documents/aula01/aula01/src/test/resources/features/Correios.feature","feature":{"location":{"line":5,"column":1},"tags":[{"location":{"line":4,"column":1},"name":"@Correios","id":"c52de545-a5c9-4e3d-bd80-013cd67a6d1b"},{"location":{"line":4,"column":11},"name":"@regressivo","id":"79900c32-44bf-4d70-bb7d-abf8baa8f98b"}],"language":"en","keyword":"Feature","name":": Calcular o valor do frete","description":"  Afim de calcular o valor do frete eu como usuario da API dos correis envio request com dados de origem\n  e caracteristicos para saber o valor total do frete e o tempo de entrega","children":[{"scenario":{"location":{"line":10,"column":3},"tags":[{"location":{"line":9,"column":3},"name":"@frete","id":"bdb7e78e-0430-45e2-b3e0-8b2f0ddc1f5c"}],"keyword":"Scenario","name":"calculando o valor do frete com dados validos","steps":[{"location":{"line":11,"column":5},"keyword":"Given ","text":"que possuo um token valido","id":"286a47af-2554-4f0d-9ba2-fa21beaa7e6d"},{"location":{"line":12,"column":5},"keyword":"When ","text":"envio um request com dados validos","id":"ca1bd399-ba8a-4970-ac2e-9263b72bead4"},{"location":{"line":13,"column":5},"keyword":"Then ","text":"o valor do frete deve ser calculado","id":"1b608dca-d27f-43a8-bb00-d56fda972036"},{"location":{"line":14,"column":5},"keyword":"And ","text":"o status code deve ser 200","id":"34ecb556-d874-4bdf-97d1-fb221ff577ad"}],"id":"1ee342d9-0654-4b5d-a25d-b5dac264c8b2"}},{"scenario":{"location":{"line":18,"column":3},"tags":[{"location":{"line":17,"column":3},"name":"@freteDataTable","id":"1554483c-a7f7-4b74-9c7a-dc986a004480"}],"keyword":"Scenario","name":"calculando o valor do frete com dados validos","steps":[{"location":{"line":19,"column":5},"keyword":"Given ","text":"que possuo um token valido","id":"f7a67c3c-c762-426f-b5e7-5ad8004b6692"},{"location":{"line":20,"column":5},"keyword":"When ","text":"envio um request com dados validos DataTable","dataTable":{"location":{"line":21,"column":7},"rows":[{"location":{"line":21,"column":7},"cells":[{"location":{"line":21,"column":9},"value":"sCepOrigem"},{"location":{"line":21,"column":22},"value":"sCepDestino"},{"location":{"line":21,"column":36},"value":"nVlPeso"},{"location":{"line":21,"column":46},"value":"nVlComprimento"},{"location":{"line":21,"column":63},"value":"nVlAltura"},{"location":{"line":21,"column":75},"value":"nVlLargura"}],"id":"07171c31-a6e7-48ee-946b-5f2ff738fa28"},{"location":{"line":22,"column":7},"cells":[{"location":{"line":22,"column":9},"value":"74371520"},{"location":{"line":22,"column":22},"value":"1327000"},{"location":{"line":22,"column":36},"value":"3.00"},{"location":{"line":22,"column":46},"value":"40.00"},{"location":{"line":22,"column":63},"value":"20.00"},{"location":{"line":22,"column":75},"value":"25"}],"id":"d4eca94d-57ff-4b67-a0a0-80c2dadcd999"}]},"id":"5ebdf620-0018-4e36-809b-bb2c1664a17d"},{"location":{"line":23,"column":5},"keyword":"Then ","text":"o valor do frete deve ser \"40,60\"","id":"4f7ffefe-456e-4743-bcaa-3aebb7620e1d"},{"location":{"line":24,"column":5},"keyword":"And ","text":"o status code deve ser 200","id":"d40ad324-e9ba-4415-9da5-55716862cc4c"}],"id":"918aa111-f530-49d2-9800-93aff936f85d"}},{"scenario":{"location":{"line":28,"column":3},"tags":[{"location":{"line":27,"column":3},"name":"@freteEsquemaDeCenario","id":"549f324c-a8b3-4736-ab60-0ba5f8d776a4"}],"keyword":"Scenario","name":"calculando o valor do frete com dados validos esquema de cenario","steps":[{"location":{"line":29,"column":5},"keyword":"Given ","text":"que possuo um token valido","id":"0c6ea8f3-9c2a-44c5-9d47-f5102480ba7f"},{"location":{"line":30,"column":5},"keyword":"When ","text":"envio um request com dados \"\u003csCepOrigem\u003e\",\"\u003csCepDestino\u003e\"","id":"2755b0ea-735c-4271-9684-6f25ce97570d"},{"location":{"line":31,"column":5},"keyword":"Then ","text":"o valor do frete deve ser \"\u003cvalorFrete\u003e\"","id":"8513902a-5578-450f-a6ae-067786ef4efa"},{"location":{"line":32,"column":5},"keyword":"And ","text":"o status code deve ser 200","id":"0f77897b-5d66-4dab-86f8-a4c1ac7c876a"}],"examples":[{"location":{"line":34,"column":5},"keyword":"Examples","tableHeader":{"location":{"line":35,"column":7},"cells":[{"location":{"line":35,"column":9},"value":"sCepOrigem"},{"location":{"line":35,"column":22},"value":"sCepDestino"},{"location":{"line":35,"column":36},"value":"valorFrete"}],"id":"064acc7e-2f70-4628-9197-663ddbf4fdd9"},"tableBody":[{"location":{"line":36,"column":7},"cells":[{"location":{"line":36,"column":9},"value":"74371520"},{"location":{"line":36,"column":22},"value":"1327000"},{"location":{"line":36,"column":36},"value":"31,00"}],"id":"aa8e2ffc-c137-4298-a14c-b7520ccbc7e7"},{"location":{"line":37,"column":7},"cells":[{"location":{"line":37,"column":9},"value":"13175613"},{"location":{"line":37,"column":22},"value":"74371520"},{"location":{"line":37,"column":36},"value":"24,80"}],"id":"e62a7e5d-bcf6-41e2-b600-b371946bb302"}],"id":"4392d181-7078-4131-ab09-f2ca914d3a2b"}],"id":"8cfaee0e-795d-4de2-9cc8-0d79f4f63b7f"}},{"scenario":{"location":{"line":41,"column":3},"tags":[{"location":{"line":40,"column":3},"name":"@freteEsquemaCenario","id":"b3560f32-eea2-4bca-9148-0c512d56dcd0"}],"keyword":"Scenario Template","name":"calculando o valor do frete com dados invalidos","steps":[{"location":{"line":42,"column":5},"keyword":"Given ","text":"que possuo um token valido","id":"20f09a8a-05f2-43e6-a467-3c23c69cd620"},{"location":{"line":43,"column":5},"keyword":"When ","text":"envio um request com dados \"\u003csCepOrigem\u003e\",\"\u003csCepDestino\u003e\"","id":"ceb0ae50-7553-4988-9aad-278d316c8eff"},{"location":{"line":44,"column":5},"keyword":"Then ","text":"deve ser exibida a \"\u003cmsg\u003e\"","id":"43562115-6c72-468f-ab2f-fc1f8653a3dc"},{"location":{"line":45,"column":5},"keyword":"And ","text":"o status code deve ser 200","id":"520266eb-cb24-4880-9001-c09377bfaaaa"}],"examples":[{"location":{"line":48,"column":5},"tags":[{"location":{"line":47,"column":5},"name":"@freteEsquemaCenarioOrigem","id":"52cc4681-988b-48d0-a4a3-b3b8cd82323e"}],"keyword":"Examples","tableHeader":{"location":{"line":49,"column":7},"cells":[{"location":{"line":49,"column":9},"value":"sCepOrigem"},{"location":{"line":49,"column":22},"value":"sCepDestino"},{"location":{"line":49,"column":36},"value":"msg"}],"id":"99cfe0a7-5272-4f9b-a552-1a8c8b4a8f20"},"tableBody":[{"location":{"line":50,"column":7},"cells":[{"location":{"line":50,"column":9},"value":"1317561X"},{"location":{"line":50,"column":22},"value":"74371520"},{"location":{"line":50,"column":36},"value":"Não foi encontrada precificação. MSG-101: O valor do(s) parâmetro(s) cepOrigem é(são) inválido(s)(-1)."}],"id":"946039cb-5137-419e-881a-1d4e2087d4a0"}],"id":"5947cc2a-0fc6-4c7f-b3a3-e643e61a8a31"},{"location":{"line":53,"column":5},"tags":[{"location":{"line":52,"column":5},"name":"@freteEsquemaCenarioDestino","id":"922c97bb-ebae-40b4-8331-0a8b68808978"}],"keyword":"Examples","tableHeader":{"location":{"line":54,"column":7},"cells":[{"location":{"line":54,"column":9},"value":"sCepOrigem"},{"location":{"line":54,"column":22},"value":"sCepDestino"},{"location":{"line":54,"column":36},"value":"msg"}],"id":"50aedf93-cdf4-4d3d-9635-353a2f4b22ab"},"tableBody":[{"location":{"line":55,"column":7},"cells":[{"location":{"line":55,"column":9},"value":"13175613"},{"location":{"line":55,"column":22},"value":"7437152X"},{"location":{"line":55,"column":36},"value":"Não foi encontrada precificação. MSG-101: O valor do(s) parâmetro(s) cepDestino é(são) inválido(s)(-1)."}],"id":"c0cc35ae-c010-4b09-8c00-8e3ec52a7ca1"}],"id":"8169c512-7018-4243-956d-009115cdb784"}],"id":"87443e1d-c1f9-4d6d-a833-148beffe2fc9"}}]},"comments":[{"location":{"line":1,"column":1},"text":"# Author:Marcelo Ribelato"},{"location":{"line":2,"column":1},"text":"# Version:1.0"}]}},{"pickle":{"id":"ff03fc24-c042-4ce9-af0c-4e56bdb2fe6c","uri":"file:///C:/Users/KlausCastanhaMerini/Documents/aula01/aula01/src/test/resources/features/Correios.feature","name":"calculando o valor do frete com dados validos","language":"en","steps":[{"text":"que possuo um token valido","id":"f23a0bd5-315b-4091-ae4c-e74018141def","astNodeIds":["286a47af-2554-4f0d-9ba2-fa21beaa7e6d"]},{"text":"envio um request com dados validos","id":"7e29b15e-f86e-4308-bcec-01cd76f8fbaa","astNodeIds":["ca1bd399-ba8a-4970-ac2e-9263b72bead4"]},{"text":"o valor do frete deve ser calculado","id":"f7c2231e-f994-4a9c-85fe-a35d6642728d","astNodeIds":["1b608dca-d27f-43a8-bb00-d56fda972036"]},{"text":"o status code deve ser 200","id":"327fb0df-996c-4bc2-8d36-b9c99b28bd4b","astNodeIds":["34ecb556-d874-4bdf-97d1-fb221ff577ad"]}],"tags":[{"name":"@Correios","astNodeId":"c52de545-a5c9-4e3d-bd80-013cd67a6d1b"},{"name":"@regressivo","astNodeId":"79900c32-44bf-4d70-bb7d-abf8baa8f98b"},{"name":"@frete","astNodeId":"bdb7e78e-0430-45e2-b3e0-8b2f0ddc1f5c"}],"astNodeIds":["1ee342d9-0654-4b5d-a25d-b5dac264c8b2"]}},{"pickle":{"id":"509db562-209e-414f-9eaf-a707e7b2196d","uri":"file:///C:/Users/KlausCastanhaMerini/Documents/aula01/aula01/src/test/resources/features/Correios.feature","name":"calculando o valor do frete com dados validos","language":"en","steps":[{"text":"que possuo um token valido","id":"3fe11904-8d13-4ff2-8c3a-a148e5c44de9","astNodeIds":["f7a67c3c-c762-426f-b5e7-5ad8004b6692"]},{"text":"envio um request com dados validos DataTable","argument":{"dataTable":{"rows":[{"cells":[{"value":"sCepOrigem"},{"value":"sCepDestino"},{"value":"nVlPeso"},{"value":"nVlComprimento"},{"value":"nVlAltura"},{"value":"nVlLargura"}]},{"cells":[{"value":"74371520"},{"value":"1327000"},{"value":"3.00"},{"value":"40.00"},{"value":"20.00"},{"value":"25"}]}]}},"id":"90774fb4-da3c-43ca-9cae-11d8188aeefb","astNodeIds":["5ebdf620-0018-4e36-809b-bb2c1664a17d"]},{"text":"o valor do frete deve ser \"40,60\"","id":"baa9d8d9-0620-4d69-9e92-2c0c383a5e87","astNodeIds":["4f7ffefe-456e-4743-bcaa-3aebb7620e1d"]},{"text":"o status code deve ser 200","id":"99aae597-c63e-4cca-88a6-04c6c113c9f7","astNodeIds":["d40ad324-e9ba-4415-9da5-55716862cc4c"]}],"tags":[{"name":"@Correios","astNodeId":"c52de545-a5c9-4e3d-bd80-013cd67a6d1b"},{"name":"@regressivo","astNodeId":"79900c32-44bf-4d70-bb7d-abf8baa8f98b"},{"name":"@freteDataTable","astNodeId":"1554483c-a7f7-4b74-9c7a-dc986a004480"}],"astNodeIds":["918aa111-f530-49d2-9800-93aff936f85d"]}},{"pickle":{"id":"83fc3c1c-a9dc-47ed-a0ee-67aa0b9ae2d0","uri":"file:///C:/Users/KlausCastanhaMerini/Documents/aula01/aula01/src/test/resources/features/Correios.feature","name":"calculando o valor do frete com dados validos esquema de cenario","language":"en","steps":[{"text":"que possuo um token valido","id":"e572513e-fbcf-4562-8f1b-517971019a54","astNodeIds":["0c6ea8f3-9c2a-44c5-9d47-f5102480ba7f","aa8e2ffc-c137-4298-a14c-b7520ccbc7e7"]},{"text":"envio um request com dados \"74371520\",\"1327000\"","id":"c43b321c-6ca6-49ab-8a07-c555f580c036","astNodeIds":["2755b0ea-735c-4271-9684-6f25ce97570d","aa8e2ffc-c137-4298-a14c-b7520ccbc7e7"]},{"text":"o valor do frete deve ser \"31,00\"","id":"961e089a-5efb-4603-9da9-896dbb001e71","astNodeIds":["8513902a-5578-450f-a6ae-067786ef4efa","aa8e2ffc-c137-4298-a14c-b7520ccbc7e7"]},{"text":"o status code deve ser 200","id":"328c02cd-b9c5-4a7c-b8d7-05265df7592a","astNodeIds":["0f77897b-5d66-4dab-86f8-a4c1ac7c876a","aa8e2ffc-c137-4298-a14c-b7520ccbc7e7"]}],"tags":[{"name":"@Correios","astNodeId":"c52de545-a5c9-4e3d-bd80-013cd67a6d1b"},{"name":"@regressivo","astNodeId":"79900c32-44bf-4d70-bb7d-abf8baa8f98b"},{"name":"@freteEsquemaDeCenario","astNodeId":"549f324c-a8b3-4736-ab60-0ba5f8d776a4"}],"astNodeIds":["8cfaee0e-795d-4de2-9cc8-0d79f4f63b7f","aa8e2ffc-c137-4298-a14c-b7520ccbc7e7"]}},{"pickle":{"id":"a0d2bc1b-1e63-495c-9fc5-4481ec6bf6a2","uri":"file:///C:/Users/KlausCastanhaMerini/Documents/aula01/aula01/src/test/resources/features/Correios.feature","name":"calculando o valor do frete com dados validos esquema de cenario","language":"en","steps":[{"text":"que possuo um token valido","id":"71188ec7-077a-440c-8a48-206136ad3a83","astNodeIds":["0c6ea8f3-9c2a-44c5-9d47-f5102480ba7f","e62a7e5d-bcf6-41e2-b600-b371946bb302"]},{"text":"envio um request com dados \"13175613\",\"74371520\"","id":"b68fcc77-88c0-42b8-ae68-d8262d410e75","astNodeIds":["2755b0ea-735c-4271-9684-6f25ce97570d","e62a7e5d-bcf6-41e2-b600-b371946bb302"]},{"text":"o valor do frete deve ser \"24,80\"","id":"d80bdb05-6a69-4f50-9675-8e60de23dd4f","astNodeIds":["8513902a-5578-450f-a6ae-067786ef4efa","e62a7e5d-bcf6-41e2-b600-b371946bb302"]},{"text":"o status code deve ser 200","id":"604924cf-d6ab-413a-86b4-2bc2737bb809","astNodeIds":["0f77897b-5d66-4dab-86f8-a4c1ac7c876a","e62a7e5d-bcf6-41e2-b600-b371946bb302"]}],"tags":[{"name":"@Correios","astNodeId":"c52de545-a5c9-4e3d-bd80-013cd67a6d1b"},{"name":"@regressivo","astNodeId":"79900c32-44bf-4d70-bb7d-abf8baa8f98b"},{"name":"@freteEsquemaDeCenario","astNodeId":"549f324c-a8b3-4736-ab60-0ba5f8d776a4"}],"astNodeIds":["8cfaee0e-795d-4de2-9cc8-0d79f4f63b7f","e62a7e5d-bcf6-41e2-b600-b371946bb302"]}},{"pickle":{"id":"722af300-d855-4e40-a179-6876a54e505d","uri":"file:///C:/Users/KlausCastanhaMerini/Documents/aula01/aula01/src/test/resources/features/Correios.feature","name":"calculando o valor do frete com dados invalidos","language":"en","steps":[{"text":"que possuo um token valido","id":"5d2e2bed-b430-48fd-aa4f-8de7a2157043","astNodeIds":["20f09a8a-05f2-43e6-a467-3c23c69cd620","946039cb-5137-419e-881a-1d4e2087d4a0"]},{"text":"envio um request com dados \"1317561X\",\"74371520\"","id":"0f260c68-caf6-463f-a6e2-18e4e9d8ae32","astNodeIds":["ceb0ae50-7553-4988-9aad-278d316c8eff","946039cb-5137-419e-881a-1d4e2087d4a0"]},{"text":"deve ser exibida a \"Não foi encontrada precificação. MSG-101: O valor do(s) parâmetro(s) cepOrigem é(são) inválido(s)(-1).\"","id":"9dfe7c8e-f160-4eed-bc3e-6ed7f5f4dbd9","astNodeIds":["43562115-6c72-468f-ab2f-fc1f8653a3dc","946039cb-5137-419e-881a-1d4e2087d4a0"]},{"text":"o status code deve ser 200","id":"74b9fe3e-0141-4453-98f7-5de68e9022de","astNodeIds":["520266eb-cb24-4880-9001-c09377bfaaaa","946039cb-5137-419e-881a-1d4e2087d4a0"]}],"tags":[{"name":"@Correios","astNodeId":"c52de545-a5c9-4e3d-bd80-013cd67a6d1b"},{"name":"@regressivo","astNodeId":"79900c32-44bf-4d70-bb7d-abf8baa8f98b"},{"name":"@freteEsquemaCenario","astNodeId":"b3560f32-eea2-4bca-9148-0c512d56dcd0"},{"name":"@freteEsquemaCenarioOrigem","astNodeId":"52cc4681-988b-48d0-a4a3-b3b8cd82323e"}],"astNodeIds":["87443e1d-c1f9-4d6d-a833-148beffe2fc9","946039cb-5137-419e-881a-1d4e2087d4a0"]}},{"pickle":{"id":"e2ff4adb-3a22-402c-93fc-cb7d2a19f2a3","uri":"file:///C:/Users/KlausCastanhaMerini/Documents/aula01/aula01/src/test/resources/features/Correios.feature","name":"calculando o valor do frete com dados invalidos","language":"en","steps":[{"text":"que possuo um token valido","id":"05ac6a14-7b55-4568-abee-6aea3f63ec3d","astNodeIds":["20f09a8a-05f2-43e6-a467-3c23c69cd620","c0cc35ae-c010-4b09-8c00-8e3ec52a7ca1"]},{"text":"envio um request com dados \"13175613\",\"7437152X\"","id":"5a7bb241-4163-4a9b-b3c1-8c54abd835e4","astNodeIds":["ceb0ae50-7553-4988-9aad-278d316c8eff","c0cc35ae-c010-4b09-8c00-8e3ec52a7ca1"]},{"text":"deve ser exibida a \"Não foi encontrada precificação. MSG-101: O valor do(s) parâmetro(s) cepDestino é(são) inválido(s)(-1).\"","id":"dec2b802-21b8-4f84-86de-a320b77a2742","astNodeIds":["43562115-6c72-468f-ab2f-fc1f8653a3dc","c0cc35ae-c010-4b09-8c00-8e3ec52a7ca1"]},{"text":"o status code deve ser 200","id":"56a09178-cf29-4825-9ddd-d266b9290558","astNodeIds":["520266eb-cb24-4880-9001-c09377bfaaaa","c0cc35ae-c010-4b09-8c00-8e3ec52a7ca1"]}],"tags":[{"name":"@Correios","astNodeId":"c52de545-a5c9-4e3d-bd80-013cd67a6d1b"},{"name":"@regressivo","astNodeId":"79900c32-44bf-4d70-bb7d-abf8baa8f98b"},{"name":"@freteEsquemaCenario","astNodeId":"b3560f32-eea2-4bca-9148-0c512d56dcd0"},{"name":"@freteEsquemaCenarioDestino","astNodeId":"922c97bb-ebae-40b4-8331-0a8b68808978"}],"astNodeIds":["87443e1d-c1f9-4d6d-a833-148beffe2fc9","c0cc35ae-c010-4b09-8c00-8e3ec52a7ca1"]}},{"source":{"uri":"file:///C:/Users/KlausCastanhaMerini/Documents/aula01/aula01/src/test/resources/features/fakerest.feature","data":"\n\n\n\n@Fakerest @regressivo\nFeature: Criar, editar e deletar atividades\n\n  @postFake\n  Scenario:Cadastrar nova atividade na API Fakerest\n    When : Envio um request de cadastro de atividades com dados validos\n    Then : a atividade deve ser criada corretamente\n    And o status code do request deve ser 200\n\n  @getFake\n  Scenario: Buscar uma atividade cadastrada na API FakeRest\n    Given existe a atividade cadastrada na API\n    When buscar essa atividade\n    Then os dados da atividade devem ser retornados\n    And o status code do request deve ser 200\n\n  @deleteFake\n  Scenario: Deletar uma atividade cadastrada na API FakeRest\n    Given existe a atividade cadastrada na API\n    When deleto essa atividade\n    Then a atividade e deletada corretamente\n    And o status code do request deve ser 200\n\n  @putFake\n  Scenario: Altera uma atividade existente na API FakeRest\n    Given existe a atividade cadastrado na API\n    When altero os dados da atividade\n    Then a atividade deve ser alterada com sucesso\n    And o status code do request deve ser 200\n\n","mediaType":"text/x.cucumber.gherkin+plain"}},{"gherkinDocument":{"uri":"file:///C:/Users/KlausCastanhaMerini/Documents/aula01/aula01/src/test/resources/features/fakerest.feature","feature":{"location":{"line":6,"column":1},"tags":[{"location":{"line":5,"column":1},"name":"@Fakerest","id":"67c0e8d4-ebb7-4afe-89a6-f4a0f7a70269"},{"location":{"line":5,"column":11},"name":"@regressivo","id":"3d3494d5-ca1d-46df-bd25-df3fdf6bf15a"}],"language":"en","keyword":"Feature","name":"Criar, editar e deletar atividades","children":[{"scenario":{"location":{"line":9,"column":3},"tags":[{"location":{"line":8,"column":3},"name":"@postFake","id":"fa4c33c0-80c3-4c76-a56a-9ff557887547"}],"keyword":"Scenario","name":"Cadastrar nova atividade na API Fakerest","steps":[{"location":{"line":10,"column":5},"keyword":"When ","text":": Envio um request de cadastro de atividades com dados validos","id":"49401a30-b5f0-427c-80da-c259222537b3"},{"location":{"line":11,"column":5},"keyword":"Then ","text":": a atividade deve ser criada corretamente","id":"8bc01ca2-4097-4b6d-83e9-166eb87c4581"},{"location":{"line":12,"column":5},"keyword":"And ","text":"o status code do request deve ser 200","id":"7cc86735-5ca4-4f07-ac88-865f8ffb04ca"}],"id":"364f06ab-f91b-4f4c-adbd-9675d2a78ac7"}},{"scenario":{"location":{"line":15,"column":3},"tags":[{"location":{"line":14,"column":3},"name":"@getFake","id":"79755a20-7ca5-459e-965e-f05d50354e9c"}],"keyword":"Scenario","name":"Buscar uma atividade cadastrada na API FakeRest","steps":[{"location":{"line":16,"column":5},"keyword":"Given ","text":"existe a atividade cadastrada na API","id":"7bee8138-11ad-4906-ac36-87736e00a8b9"},{"location":{"line":17,"column":5},"keyword":"When ","text":"buscar essa atividade","id":"cef35050-a0ec-47e2-a651-0e898141fbb1"},{"location":{"line":18,"column":5},"keyword":"Then ","text":"os dados da atividade devem ser retornados","id":"cbfac23a-de89-4add-9449-8d45d0a7708e"},{"location":{"line":19,"column":5},"keyword":"And ","text":"o status code do request deve ser 200","id":"e394e896-a488-42f0-ba26-7f94b794eb4c"}],"id":"bc1ee9f0-a634-4e55-87cf-3b4a2ed051d1"}},{"scenario":{"location":{"line":22,"column":3},"tags":[{"location":{"line":21,"column":3},"name":"@deleteFake","id":"db6b5cc4-927c-40d8-a5f3-68151c462f0a"}],"keyword":"Scenario","name":"Deletar uma atividade cadastrada na API FakeRest","steps":[{"location":{"line":23,"column":5},"keyword":"Given ","text":"existe a atividade cadastrada na API","id":"fd35bf03-5930-47f0-8c57-2f4bf7e28ba3"},{"location":{"line":24,"column":5},"keyword":"When ","text":"deleto essa atividade","id":"3b62e686-5a4c-4fda-8689-786af0f81d7b"},{"location":{"line":25,"column":5},"keyword":"Then ","text":"a atividade e deletada corretamente","id":"ffbc97f2-386a-41f9-b44c-27666d0473ff"},{"location":{"line":26,"column":5},"keyword":"And ","text":"o status code do request deve ser 200","id":"704a0a14-64b0-4cd9-af0f-8c7f59605834"}],"id":"135dae09-51ef-4942-98ac-ec69dac236d1"}},{"scenario":{"location":{"line":29,"column":3},"tags":[{"location":{"line":28,"column":3},"name":"@putFake","id":"653eb4e7-3ebf-44b2-ae08-7da0ff838230"}],"keyword":"Scenario","name":"Altera uma atividade existente na API FakeRest","steps":[{"location":{"line":30,"column":5},"keyword":"Given ","text":"existe a atividade cadastrado na API","id":"5aa7fb0e-dce4-4382-bc00-86f9d263418a"},{"location":{"line":31,"column":5},"keyword":"When ","text":"altero os dados da atividade","id":"0d608c9c-e561-445d-9aef-786e1d65fa30"},{"location":{"line":32,"column":5},"keyword":"Then ","text":"a atividade deve ser alterada com sucesso","id":"8f164667-701b-4803-8b99-986d4766e1a5"},{"location":{"line":33,"column":5},"keyword":"And ","text":"o status code do request deve ser 200","id":"9775986e-b406-4d00-9f0e-5b5715d8148a"}],"id":"9b430bca-5eb1-4f62-b25c-9ccd59c94f09"}}]}}},{"pickle":{"id":"5e07bd74-6725-42e5-8383-72832ac56dda","uri":"file:///C:/Users/KlausCastanhaMerini/Documents/aula01/aula01/src/test/resources/features/fakerest.feature","name":"Cadastrar nova atividade na API Fakerest","language":"en","steps":[{"text":": Envio um request de cadastro de atividades com dados validos","id":"8e70c8f8-a840-45be-b9f2-fdddc678fdab","astNodeIds":["49401a30-b5f0-427c-80da-c259222537b3"]},{"text":": a atividade deve ser criada corretamente","id":"9289f841-58c1-4291-a1c0-fec013298ebc","astNodeIds":["8bc01ca2-4097-4b6d-83e9-166eb87c4581"]},{"text":"o status code do request deve ser 200","id":"a63e03a2-edd2-4518-8d5f-fe20a070b6fe","astNodeIds":["7cc86735-5ca4-4f07-ac88-865f8ffb04ca"]}],"tags":[{"name":"@Fakerest","astNodeId":"67c0e8d4-ebb7-4afe-89a6-f4a0f7a70269"},{"name":"@regressivo","astNodeId":"3d3494d5-ca1d-46df-bd25-df3fdf6bf15a"},{"name":"@postFake","astNodeId":"fa4c33c0-80c3-4c76-a56a-9ff557887547"}],"astNodeIds":["364f06ab-f91b-4f4c-adbd-9675d2a78ac7"]}},{"pickle":{"id":"29b43eef-b89a-442e-9e7c-b6146247ae95","uri":"file:///C:/Users/KlausCastanhaMerini/Documents/aula01/aula01/src/test/resources/features/fakerest.feature","name":"Buscar uma atividade cadastrada na API FakeRest","language":"en","steps":[{"text":"existe a atividade cadastrada na API","id":"5f935654-9ffb-497b-afd2-623b7aef11b0","astNodeIds":["7bee8138-11ad-4906-ac36-87736e00a8b9"]},{"text":"buscar essa atividade","id":"f8f53ab4-4e68-42dd-a645-081d429fd873","astNodeIds":["cef35050-a0ec-47e2-a651-0e898141fbb1"]},{"text":"os dados da atividade devem ser retornados","id":"cd474f43-7cfd-472c-9f6e-1d7478b57e02","astNodeIds":["cbfac23a-de89-4add-9449-8d45d0a7708e"]},{"text":"o status code do request deve ser 200","id":"16d61b67-3d4b-47f3-b52d-3d845a89b169","astNodeIds":["e394e896-a488-42f0-ba26-7f94b794eb4c"]}],"tags":[{"name":"@Fakerest","astNodeId":"67c0e8d4-ebb7-4afe-89a6-f4a0f7a70269"},{"name":"@regressivo","astNodeId":"3d3494d5-ca1d-46df-bd25-df3fdf6bf15a"},{"name":"@getFake","astNodeId":"79755a20-7ca5-459e-965e-f05d50354e9c"}],"astNodeIds":["bc1ee9f0-a634-4e55-87cf-3b4a2ed051d1"]}},{"pickle":{"id":"b02297c2-3cdb-4fcc-9695-bae53fe301c3","uri":"file:///C:/Users/KlausCastanhaMerini/Documents/aula01/aula01/src/test/resources/features/fakerest.feature","name":"Deletar uma atividade cadastrada na API FakeRest","language":"en","steps":[{"text":"existe a atividade cadastrada na API","id":"d09fc6e6-06dd-4e16-a732-cdc8f02e68a6","astNodeIds":["fd35bf03-5930-47f0-8c57-2f4bf7e28ba3"]},{"text":"deleto essa atividade","id":"2735e4a6-a78d-48ef-9f0c-231db3046a33","astNodeIds":["3b62e686-5a4c-4fda-8689-786af0f81d7b"]},{"text":"a atividade e deletada corretamente","id":"2e10e637-d2e3-42f5-8cc8-8a01b902818f","astNodeIds":["ffbc97f2-386a-41f9-b44c-27666d0473ff"]},{"text":"o status code do request deve ser 200","id":"e210c554-45d7-47d5-a4b0-f2eeff17d324","astNodeIds":["704a0a14-64b0-4cd9-af0f-8c7f59605834"]}],"tags":[{"name":"@Fakerest","astNodeId":"67c0e8d4-ebb7-4afe-89a6-f4a0f7a70269"},{"name":"@regressivo","astNodeId":"3d3494d5-ca1d-46df-bd25-df3fdf6bf15a"},{"name":"@deleteFake","astNodeId":"db6b5cc4-927c-40d8-a5f3-68151c462f0a"}],"astNodeIds":["135dae09-51ef-4942-98ac-ec69dac236d1"]}},{"pickle":{"id":"1247c6c0-2440-4167-a3c8-3c1cb06c3f91","uri":"file:///C:/Users/KlausCastanhaMerini/Documents/aula01/aula01/src/test/resources/features/fakerest.feature","name":"Altera uma atividade existente na API FakeRest","language":"en","steps":[{"text":"existe a atividade cadastrado na API","id":"796d9550-18e7-4f02-9373-e1e509795cb9","astNodeIds":["5aa7fb0e-dce4-4382-bc00-86f9d263418a"]},{"text":"altero os dados da atividade","id":"dbf2d794-d2f3-4e60-b3ee-fdcab59cd825","astNodeIds":["0d608c9c-e561-445d-9aef-786e1d65fa30"]},{"text":"a atividade deve ser alterada com sucesso","id":"7f221573-eeab-4a48-ae63-e72e3ee74b03","astNodeIds":["8f164667-701b-4803-8b99-986d4766e1a5"]},{"text":"o status code do request deve ser 200","id":"f5c721c4-67cb-47ab-8b63-0359fc5fe34e","astNodeIds":["9775986e-b406-4d00-9f0e-5b5715d8148a"]}],"tags":[{"name":"@Fakerest","astNodeId":"67c0e8d4-ebb7-4afe-89a6-f4a0f7a70269"},{"name":"@regressivo","astNodeId":"3d3494d5-ca1d-46df-bd25-df3fdf6bf15a"},{"name":"@putFake","astNodeId":"653eb4e7-3ebf-44b2-ae08-7da0ff838230"}],"astNodeIds":["9b430bca-5eb1-4f62-b25c-9ccd59c94f09"]}},{"source":{"uri":"file:///C:/Users/KlausCastanhaMerini/Documents/aula01/aula01/src/test/resources/features/gorest.feature","data":"\n@Gorest @regressivo\nFeature: Criar e editar contas do usuário\n  Eu como administrador do sistema, quero cadastrar, editar e excluir usuarios do sistema\n\n  @post\n  Scenario: Cadastrar novo usuário API Gorest\n    Given Que possuo gorest token valido\n    When envio um request de cadastro de usuario com dados validos\n    Then o usuario deve sr criado corretamente\n    And o status code do request deve ser 201\n\n  @get\n  Scenario: Buscar um usuario cadastrado na API GoRest\n    Given Que possuo gorest token valido\n    And existe o usuario cadastrado na API\n    When buscar esse usuario\n    Then os dados do usuario devem ser retornados\n    And o status code do request deve ser 200\n\n\n  @put\n  Scenario: Altera um usuario existente na API GoRest PUT\n    Given Que possuo gorest token valido\n    And existe o usuario cadastrado na API\n    When altero os dados do usuario\n    Then o usuario deve ser alterado com sucesso\n    And o status code do request deve ser 200\n\n\n  @patch\n  Scenario: Altera um usuario existente na API GoRest PATCH\n    Given Que possuo gorest token valido\n    And existe o usuario cadastrado na API\n    When altero um ou mais dados do usuario\n    Then o usuario deve ser alterado com sucesso\n    And o status code do request deve ser 200\n\n\n  @delete\n  Scenario: Deletar um usuario cadastrado na API GoRest\n    Given Que possuo gorest token valido\n    And existe o usuario cadastrado na API\n    When deleto esse usuario\n    Then o usuario e deletado corretamente\n    And o status code do request deve ser 204","mediaType":"text/x.cucumber.gherkin+plain"}},{"gherkinDocument":{"uri":"file:///C:/Users/KlausCastanhaMerini/Documents/aula01/aula01/src/test/resources/features/gorest.feature","feature":{"location":{"line":3,"column":1},"tags":[{"location":{"line":2,"column":1},"name":"@Gorest","id":"9f0742c0-9230-45c8-b90a-8584674c66a9"},{"location":{"line":2,"column":9},"name":"@regressivo","id":"fcab5484-8b6b-45f1-b522-b6e6d7b87fdd"}],"language":"en","keyword":"Feature","name":"Criar e editar contas do usuário","description":"  Eu como administrador do sistema, quero cadastrar, editar e excluir usuarios do sistema","children":[{"scenario":{"location":{"line":7,"column":3},"tags":[{"location":{"line":6,"column":3},"name":"@post","id":"c3848f25-5de8-4867-84ed-aaf6200f94ce"}],"keyword":"Scenario","name":"Cadastrar novo usuário API Gorest","steps":[{"location":{"line":8,"column":5},"keyword":"Given ","text":"Que possuo gorest token valido","id":"25b40306-c88f-4e9f-98c6-1723ea3407d3"},{"location":{"line":9,"column":5},"keyword":"When ","text":"envio um request de cadastro de usuario com dados validos","id":"f3ca2754-48c6-4229-a990-1b07c16ed2f2"},{"location":{"line":10,"column":5},"keyword":"Then ","text":"o usuario deve sr criado corretamente","id":"2d7cca0d-e852-486e-8b3a-8f1ddf49b687"},{"location":{"line":11,"column":5},"keyword":"And ","text":"o status code do request deve ser 201","id":"9e313f6f-2812-4dac-b096-f8bd5c849c75"}],"id":"05d39b4a-2916-4a2d-a287-3591798fa49c"}},{"scenario":{"location":{"line":14,"column":3},"tags":[{"location":{"line":13,"column":3},"name":"@get","id":"814f0d49-64d3-4201-8662-11d230f928f9"}],"keyword":"Scenario","name":"Buscar um usuario cadastrado na API GoRest","steps":[{"location":{"line":15,"column":5},"keyword":"Given ","text":"Que possuo gorest token valido","id":"90d707a1-7e38-44e5-9379-a2f5cba3dcc9"},{"location":{"line":16,"column":5},"keyword":"And ","text":"existe o usuario cadastrado na API","id":"800d1728-59ab-4be8-9438-13bfcfa2d476"},{"location":{"line":17,"column":5},"keyword":"When ","text":"buscar esse usuario","id":"2e0a644f-0001-498a-9bb3-2ccbd55b1232"},{"location":{"line":18,"column":5},"keyword":"Then ","text":"os dados do usuario devem ser retornados","id":"7e617617-4b49-49b6-971e-da1a732d1ac9"},{"location":{"line":19,"column":5},"keyword":"And ","text":"o status code do request deve ser 200","id":"19ebd911-5715-4a2f-9e46-4f6a40ebed46"}],"id":"78bb1a79-61ec-473f-938c-acb2711e44f4"}},{"scenario":{"location":{"line":23,"column":3},"tags":[{"location":{"line":22,"column":3},"name":"@put","id":"4e235db8-1781-4e73-a17c-abd794d35e28"}],"keyword":"Scenario","name":"Altera um usuario existente na API GoRest PUT","steps":[{"location":{"line":24,"column":5},"keyword":"Given ","text":"Que possuo gorest token valido","id":"ddc58b65-1b10-4334-a30e-9b06a470e483"},{"location":{"line":25,"column":5},"keyword":"And ","text":"existe o usuario cadastrado na API","id":"db176df6-952d-489d-b0e2-25ef21f09e90"},{"location":{"line":26,"column":5},"keyword":"When ","text":"altero os dados do usuario","id":"90913292-874c-451b-a182-d88c5d77eff9"},{"location":{"line":27,"column":5},"keyword":"Then ","text":"o usuario deve ser alterado com sucesso","id":"f1c74729-fb89-4cb4-aec4-950aefadf62c"},{"location":{"line":28,"column":5},"keyword":"And ","text":"o status code do request deve ser 200","id":"0c25e4bc-9bd7-48ab-9904-6da8309435b7"}],"id":"4ee26e71-0568-4efe-9423-5804ccf4d90f"}},{"scenario":{"location":{"line":32,"column":3},"tags":[{"location":{"line":31,"column":3},"name":"@patch","id":"b9b70079-a0da-4acd-a91b-e49e6db1ab9c"}],"keyword":"Scenario","name":"Altera um usuario existente na API GoRest PATCH","steps":[{"location":{"line":33,"column":5},"keyword":"Given ","text":"Que possuo gorest token valido","id":"bda7d94b-9c7b-4140-884d-052f43a61d8e"},{"location":{"line":34,"column":5},"keyword":"And ","text":"existe o usuario cadastrado na API","id":"e8293b28-adcd-45b2-9c93-896b26790c1d"},{"location":{"line":35,"column":5},"keyword":"When ","text":"altero um ou mais dados do usuario","id":"11b2b907-16ab-4f9c-81b8-70b82677e39e"},{"location":{"line":36,"column":5},"keyword":"Then ","text":"o usuario deve ser alterado com sucesso","id":"314eee85-4466-40a4-a554-fa947526a5c9"},{"location":{"line":37,"column":5},"keyword":"And ","text":"o status code do request deve ser 200","id":"68c2fa61-4fa4-4ed0-8462-9907e257df1f"}],"id":"a94451bd-4096-4a92-ba0e-ed6374a5a965"}},{"scenario":{"location":{"line":41,"column":3},"tags":[{"location":{"line":40,"column":3},"name":"@delete","id":"1c9e6d18-ddbf-433e-bfef-8f808a76ddac"}],"keyword":"Scenario","name":"Deletar um usuario cadastrado na API GoRest","steps":[{"location":{"line":42,"column":5},"keyword":"Given ","text":"Que possuo gorest token valido","id":"a97dca1a-495d-4637-bf38-f05560b7b470"},{"location":{"line":43,"column":5},"keyword":"And ","text":"existe o usuario cadastrado na API","id":"49a94229-47e7-4c12-b8ac-c8d953120599"},{"location":{"line":44,"column":5},"keyword":"When ","text":"deleto esse usuario","id":"ac7ec034-7b39-4f60-9eef-e6fbabfac5bc"},{"location":{"line":45,"column":5},"keyword":"Then ","text":"o usuario e deletado corretamente","id":"b491be67-fead-4a4e-b76f-b4cd4b03df1a"},{"location":{"line":46,"column":5},"keyword":"And ","text":"o status code do request deve ser 204","id":"2f6cbd44-98ed-4a09-89fe-db3cd1fac8f7"}],"id":"5538f79f-f861-4acf-8df7-1531c0d7577b"}}]}}},{"pickle":{"id":"5836a4dc-4987-4fb7-80f4-f251a16a1be2","uri":"file:///C:/Users/KlausCastanhaMerini/Documents/aula01/aula01/src/test/resources/features/gorest.feature","name":"Cadastrar novo usuário API Gorest","language":"en","steps":[{"text":"Que possuo gorest token valido","id":"c28124c6-b847-40b4-880b-5fd59a22502f","astNodeIds":["25b40306-c88f-4e9f-98c6-1723ea3407d3"]},{"text":"envio um request de cadastro de usuario com dados validos","id":"e3d4f714-c005-40f1-8214-bd070aa95d3a","astNodeIds":["f3ca2754-48c6-4229-a990-1b07c16ed2f2"]},{"text":"o usuario deve sr criado corretamente","id":"616256ed-ef81-46bd-85ba-faf1d0b36448","astNodeIds":["2d7cca0d-e852-486e-8b3a-8f1ddf49b687"]},{"text":"o status code do request deve ser 201","id":"f2c09b06-e089-45fc-a97e-aee92de8be19","astNodeIds":["9e313f6f-2812-4dac-b096-f8bd5c849c75"]}],"tags":[{"name":"@Gorest","astNodeId":"9f0742c0-9230-45c8-b90a-8584674c66a9"},{"name":"@regressivo","astNodeId":"fcab5484-8b6b-45f1-b522-b6e6d7b87fdd"},{"name":"@post","astNodeId":"c3848f25-5de8-4867-84ed-aaf6200f94ce"}],"astNodeIds":["05d39b4a-2916-4a2d-a287-3591798fa49c"]}},{"pickle":{"id":"0922c3ae-9685-4db5-b844-70fcf02c7334","uri":"file:///C:/Users/KlausCastanhaMerini/Documents/aula01/aula01/src/test/resources/features/gorest.feature","name":"Buscar um usuario cadastrado na API GoRest","language":"en","steps":[{"text":"Que possuo gorest token valido","id":"c0c4835d-54fb-4e29-a295-dd5deae3a8ee","astNodeIds":["90d707a1-7e38-44e5-9379-a2f5cba3dcc9"]},{"text":"existe o usuario cadastrado na API","id":"c9521b82-b5fe-4a75-84a6-cd76aa864477","astNodeIds":["800d1728-59ab-4be8-9438-13bfcfa2d476"]},{"text":"buscar esse usuario","id":"19dca27e-649c-45fe-9a05-b28422c1bef9","astNodeIds":["2e0a644f-0001-498a-9bb3-2ccbd55b1232"]},{"text":"os dados do usuario devem ser retornados","id":"defa9f93-8e38-4563-858d-fccd26d5f8a2","astNodeIds":["7e617617-4b49-49b6-971e-da1a732d1ac9"]},{"text":"o status code do request deve ser 200","id":"8943151f-54ab-47c7-8d7b-8b057268f531","astNodeIds":["19ebd911-5715-4a2f-9e46-4f6a40ebed46"]}],"tags":[{"name":"@Gorest","astNodeId":"9f0742c0-9230-45c8-b90a-8584674c66a9"},{"name":"@regressivo","astNodeId":"fcab5484-8b6b-45f1-b522-b6e6d7b87fdd"},{"name":"@get","astNodeId":"814f0d49-64d3-4201-8662-11d230f928f9"}],"astNodeIds":["78bb1a79-61ec-473f-938c-acb2711e44f4"]}},{"pickle":{"id":"d344df62-d0ed-4119-a172-d85fa806913d","uri":"file:///C:/Users/KlausCastanhaMerini/Documents/aula01/aula01/src/test/resources/features/gorest.feature","name":"Altera um usuario existente na API GoRest PUT","language":"en","steps":[{"text":"Que possuo gorest token valido","id":"73610f16-5158-41e8-9b91-c43e5cd5992d","astNodeIds":["ddc58b65-1b10-4334-a30e-9b06a470e483"]},{"text":"existe o usuario cadastrado na API","id":"f93cb339-812c-47f7-904b-c4fcd905303d","astNodeIds":["db176df6-952d-489d-b0e2-25ef21f09e90"]},{"text":"altero os dados do usuario","id":"7e8c7d2a-b341-46a5-a7c5-7c7d352b47b2","astNodeIds":["90913292-874c-451b-a182-d88c5d77eff9"]},{"text":"o usuario deve ser alterado com sucesso","id":"5324f4a4-5abe-4736-93be-4b8f5241aab2","astNodeIds":["f1c74729-fb89-4cb4-aec4-950aefadf62c"]},{"text":"o status code do request deve ser 200","id":"9c951f64-fc94-41fc-9204-1b286e920fda","astNodeIds":["0c25e4bc-9bd7-48ab-9904-6da8309435b7"]}],"tags":[{"name":"@Gorest","astNodeId":"9f0742c0-9230-45c8-b90a-8584674c66a9"},{"name":"@regressivo","astNodeId":"fcab5484-8b6b-45f1-b522-b6e6d7b87fdd"},{"name":"@put","astNodeId":"4e235db8-1781-4e73-a17c-abd794d35e28"}],"astNodeIds":["4ee26e71-0568-4efe-9423-5804ccf4d90f"]}},{"pickle":{"id":"b4adee52-4192-4610-8e25-6499563e76c7","uri":"file:///C:/Users/KlausCastanhaMerini/Documents/aula01/aula01/src/test/resources/features/gorest.feature","name":"Altera um usuario existente na API GoRest PATCH","language":"en","steps":[{"text":"Que possuo gorest token valido","id":"e03c0ae6-e1d3-4b4c-b214-ddc1284a9bd5","astNodeIds":["bda7d94b-9c7b-4140-884d-052f43a61d8e"]},{"text":"existe o usuario cadastrado na API","id":"a67f7950-03c9-4c4b-af15-6b73c3987e9c","astNodeIds":["e8293b28-adcd-45b2-9c93-896b26790c1d"]},{"text":"altero um ou mais dados do usuario","id":"9d4a2848-22c1-4242-8023-cf87d93b95d2","astNodeIds":["11b2b907-16ab-4f9c-81b8-70b82677e39e"]},{"text":"o usuario deve ser alterado com sucesso","id":"e5714fcf-8b8a-4479-9f12-d8608edad998","astNodeIds":["314eee85-4466-40a4-a554-fa947526a5c9"]},{"text":"o status code do request deve ser 200","id":"137ee983-b3fd-447b-abdf-c28f130697e2","astNodeIds":["68c2fa61-4fa4-4ed0-8462-9907e257df1f"]}],"tags":[{"name":"@Gorest","astNodeId":"9f0742c0-9230-45c8-b90a-8584674c66a9"},{"name":"@regressivo","astNodeId":"fcab5484-8b6b-45f1-b522-b6e6d7b87fdd"},{"name":"@patch","astNodeId":"b9b70079-a0da-4acd-a91b-e49e6db1ab9c"}],"astNodeIds":["a94451bd-4096-4a92-ba0e-ed6374a5a965"]}},{"pickle":{"id":"0d4e476a-dcc1-42ce-b082-2ce40c65b2f0","uri":"file:///C:/Users/KlausCastanhaMerini/Documents/aula01/aula01/src/test/resources/features/gorest.feature","name":"Deletar um usuario cadastrado na API GoRest","language":"en","steps":[{"text":"Que possuo gorest token valido","id":"d57aa377-2bd0-4b1a-b1ff-197356580e19","astNodeIds":["a97dca1a-495d-4637-bf38-f05560b7b470"]},{"text":"existe o usuario cadastrado na API","id":"9384bae6-faed-47b8-a299-e78ba0043108","astNodeIds":["49a94229-47e7-4c12-b8ac-c8d953120599"]},{"text":"deleto esse usuario","id":"2ccca6ee-e990-4c3e-8904-f030988c9c0c","astNodeIds":["ac7ec034-7b39-4f60-9eef-e6fbabfac5bc"]},{"text":"o usuario e deletado corretamente","id":"a1013734-bbfa-4da8-840d-5b35e349fa93","astNodeIds":["b491be67-fead-4a4e-b76f-b4cd4b03df1a"]},{"text":"o status code do request deve ser 204","id":"767e8478-eb41-4ef3-b1eb-059adb7db779","astNodeIds":["2f6cbd44-98ed-4a09-89fe-db3cd1fac8f7"]}],"tags":[{"name":"@Gorest","astNodeId":"9f0742c0-9230-45c8-b90a-8584674c66a9"},{"name":"@regressivo","astNodeId":"fcab5484-8b6b-45f1-b522-b6e6d7b87fdd"},{"name":"@delete","astNodeId":"1c9e6d18-ddbf-433e-bfef-8f808a76ddac"}],"astNodeIds":["5538f79f-f861-4acf-8df7-1531c0d7577b"]}},{"testCase":{"id":"ba828586-a030-4993-aefa-ab4072627364","pickleId":"d344df62-d0ed-4119-a172-d85fa806913d","testSteps":[{"id":"1a4a3bda-176c-424d-a421-fd10d9d668d1","hookId":"1e0ea73f-f9ca-430f-9696-0409663ac752"},{"id":"93b0293c-3a0a-4d1a-9ce4-549bcb25c50e","pickleStepId":"73610f16-5158-41e8-9b91-c43e5cd5992d","stepDefinitionIds":["1aa617a6-f93c-4ec6-aadb-cfdb8ce2e1c7"],"stepMatchArgumentsLists":[{}]},{"id":"49b23707-9305-45fc-b5cf-df92
