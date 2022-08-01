@@ -1,0 +1,116 @@
+[
+  {
+    "comments": [
+      {
+        "line": 1,
+        "value": "#language: pt"
+      },
+      {
+        "line": 2,
+        "value": "#Author: Rafael Lima"
+      },
+      {
+        "line": 3,
+        "value": "#Version: 1.0"
+      },
+      {
+        "line": 4,
+        "value": "#Encoding: UTF-8"
+      }
+    ],
+    "line": 7,
+    "elements": [
+      {
+        "before": [
+          {
+            "result": {
+              "duration": 2267315400,
+              "status": "passed"
+            },
+            "match": {
+              "location": "Hooks.beforeScenario(Scenario)"
+            }
+          }
+        ],
+        "line": 32,
+        "name": "Comprar de todos menus",
+        "description": "",
+        "id": "comprar-livro;comprar-de-todos-menus",
+        "after": [
+          {
+            "result": {
+              "duration": 1016701800,
+              "status": "passed"
+            },
+            "match": {
+              "location": "Hooks.afterScenario(Scenario)"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Cenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 9117533200,
+              "status": "passed"
+            },
+            "line": 33,
+            "name": "que estou no site demowebshop",
+            "match": {
+              "location": "CompraLivroSteps.que_estou_no_site_demowebshop()"
+            },
+            "keyword": "Dado "
+          },
+          {
+            "result": {
+              "duration": 63760347800,
+              "status": "passed"
+            },
+            "line": 34,
+            "name": "clico em cada menu",
+            "match": {
+              "location": "CompraLivroSteps.clicoEmCadaMenu()"
+            },
+            "keyword": "E "
+          },
+          {
+            "result": {
+              "status": "undefined"
+            },
+            "line": 35,
+            "name": "seleciono um produto de cada menu",
+            "match": {},
+            "keyword": "Entao "
+          },
+          {
+            "result": {
+              "status": "undefined"
+            },
+            "line": 36,
+            "name": "site adiciona os produtos ao carrnho e compras",
+            "match": {},
+            "keyword": "Entao "
+          }
+        ],
+        "tags": [
+          {
+            "line": 31,
+            "name": "@compratudo"
+          }
+        ]
+      }
+    ],
+    "name": "Comprar livro",
+    "description": "",
+    "id": "comprar-livro",
+    "keyword": "Funcionalidade",
+    "uri": "login.feature",
+    "tags": [
+      {
+        "line": 6,
+        "name": "@funcionalidades"
+      }
+    ]
+  }
+]
