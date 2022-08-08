@@ -1,162 +1,243 @@
 package funcionalidades;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import pages.CompraGiftCardPage;
 import pages.CompraOutrosPage;
 import pages.ComprarLivroPage;
 import pages.RegisterPage;
 import utils.BaseTest;
 
-public class CompraLivroFuncionalidade  extends BaseTest
-{
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
+import java.util.concurrent.TimeUnit;
+
+import static java.lang.Boolean.TRUE;
+import static org.junit.Assert.assertEquals;
+
+public class CompraLivroFuncionalidade extends BaseTest {
     private ComprarLivroPage compraLivroPg;
     private RegisterPage registerPg;
-
     private CompraOutrosPage compraOutrosPage;
+    private CompraGiftCardPage compraGiftCardPage;
+
     String urlSt;
 
-
-
-    public void abrePagina()
-    {
+    public void abrePagina() {
         this.webDriver.get("http://demowebshop.tricentis.com/");
         this.compraLivroPg = new ComprarLivroPage(webDriver);
         this.compraOutrosPage = new CompraOutrosPage(webDriver);
+        this.compraGiftCardPage = new CompraGiftCardPage(webDriver);
     }
+    public void compraComputers() throws InterruptedException {
+        wait.until(ExpectedConditions.elementToBeClickable(compraLivroPg.getSelecionaComputerBtn()));
+        compraLivroPg.getSelecionaComputerBtn().click();
+        wait.until(ExpectedConditions.elementToBeClickable(compraOutrosPage.getSelecionaAcessoriosLink()));
+        compraOutrosPage.getSelecionaAcessoriosLink().click();
+        selecionaTodosProdutos();
+        wait.until(ExpectedConditions.elementToBeClickable(compraOutrosPage.getSelecionaProdAcessorioBtn()));
+        compraOutrosPage.getSelecionaProdAcessorioBtn().click();
+    }
+
     public void compraLivroAction() {
         compraLivroPg.getSelecionaLivrosBtn().click();
     }
 
     public void compraVariosProdAction() throws InterruptedException {
-        Thread.sleep(500);
+        wait.until(ExpectedConditions.elementToBeClickable(compraLivroPg.getSelecionaComputerBtn()));
         compraLivroPg.getSelecionaComputerBtn().click();
-        Thread.sleep(2000);
+        wait.until(ExpectedConditions.elementToBeClickable(compraOutrosPage.getSelecionaAcessoriosLink()));
         compraOutrosPage.getSelecionaAcessoriosLink().click();
-        Thread.sleep(1000);
+        wait.until(ExpectedConditions.elementToBeClickable(compraOutrosPage.getSelecionaProdAcessorioBtn()));
         compraOutrosPage.getSelecionaProdAcessorioBtn().click();
-        Thread.sleep(3000);
-        compraLivroPg.getSelecionaEletronicsBtn().click();
-        Thread.sleep(1000);
-        compraOutrosPage.getSelecionaCategCellphones().click();
-        Thread.sleep(1000);
-        compraOutrosPage.getSelecionaProdCategCellphones().click();
-        Thread.sleep(3000);
-        compraLivroPg.getSelecionaApparelShoesBtn().click();
-        Thread.sleep(1000);
+        compraEletronicsAction();
+        compraApparelShoesAction();
+        wait.until(ExpectedConditions.elementToBeClickable(compraOutrosPage.getSelecionaProdCategApparelShoes()));
         compraOutrosPage.getSelecionaProdCategApparelShoes().click();
-        Thread.sleep(1500);
+        wait.until(ExpectedConditions.elementToBeClickable(compraOutrosPage.getSelecionaProdShoes()));
+        synchronized (webDriver) {
+            try {
+                webDriver.wait(5000);   }
+            catch (InterruptedException e) {   e.printStackTrace();       }
+        }
         compraOutrosPage.getSelecionaProdShoes().click();
-        Thread.sleep(7000);
-        compraLivroPg.getSelecionaDigitalDownloadsBtn().click();
-        Thread.sleep(1000);
+        compraDigitalDownloadsAction();
+        wait.until(ExpectedConditions.elementToBeClickable(compraOutrosPage.getSelecionaDigitalDownloadsProd()));
         compraOutrosPage.getSelecionaDigitalDownloadsProd().click();
-        Thread.sleep(3000);
-        compraLivroPg.getSelecionaJewelryBtn().click();
-        Thread.sleep(1500);
+        compraJewelryAction();
+        wait.until(ExpectedConditions.elementToBeClickable(compraOutrosPage.getSelecionaProdJewlery()));
         compraOutrosPage.getSelecionaProdJewlery().click();
-        Thread.sleep(3000);
-        compraLivroPg.getSelecionaGiftCardsBtn().click();
-        Thread.sleep(1500);
-        compraOutrosPage.getSelecionaProdGiftCards().click();
-        Thread.sleep(1500);
-        compraOutrosPage.getCampoReciptNameGiftCards().sendKeys("KLluz1");
-        Thread.sleep(1500);
-        compraOutrosPage.getCampoReciptEmailGiftCards().sendKeys("kl1@ya.brc");
-        Thread.sleep(1500);
-        compraOutrosPage.getCampoNameGiftCards().sendKeys("RoJohsen");
-        Thread.sleep(1500);
-        compraOutrosPage.getCampoEmailGiftCards().sendKeys("kl@ya.brc");
-        Thread.sleep(1500);
-        compraOutrosPage.getSendGiftCardsBtn().click();
+        compraGiftCardsAction();
+    }
+    public void compraTodosProdAction() throws InterruptedException
+    {
+        compraComputers();
+        compraEletronicsAction();
+        compraApparelShoesAction();
+        compraDigitalDownloadsAction();
+        compraJewelryAction();
+        compraGiftCardsAction();
+        espera5s();
+        espera5s();
+    }
+    private void espera5s()
+    {
+        synchronized (webDriver) {
+            try {
+                webDriver.wait(5000);   }
+            catch (InterruptedException e) {   e.printStackTrace();       }        }
+    }
+    private void espera2s()
+    {
+        synchronized (webDriver) {
+            try {
+                webDriver.wait(2000);   }
+            catch (InterruptedException e) {   e.printStackTrace();       }        }
+    }
+    public void compraApparelShoesAction() throws InterruptedException
+    {
+        wait.until(ExpectedConditions.elementToBeClickable(compraLivroPg.getSelecionaApparelShoesBtn()));
+        compraLivroPg.getSelecionaApparelShoesBtn().click();//tipo
+        wait.until(ExpectedConditions.elementToBeClickable(compraOutrosPage.getSelecionaProdCategApparelShoes()));
+        compraOutrosPage.getSelecionaProdCategApparelShoes().click();//categ
+        wait.until(ExpectedConditions.elementToBeClickable(compraOutrosPage.getSelecionaProdShoes()));
+        espera5s();
+        compraOutrosPage.getSelecionaProdShoes().click();//prod
 
-        Thread.sleep(15000);
     }
-    public void compraApparelShoesAction() throws InterruptedException {
-        Thread.sleep(500);
-        compraLivroPg.getSelecionaApparelShoesBtn().click();
-        Thread.sleep(500);
-    }
-    public void compraCellphonesAction() throws InterruptedException {
-        Thread.sleep(500);
-        compraLivroPg.getSelecionaCellphonesBtn().click();
-        Thread.sleep(500);
-    }
+//
+//    public void compraCellphonesAction() throws InterruptedException {
+//        wait.until(ExpectedConditions.elementToBeClickable(compraLivroPg.getSelecionaCellphonesBtn()));
+//        compraLivroPg.getSelecionaCellphonesBtn().click();
+//    }
+
     public void compraDigitalDownloadsAction() throws InterruptedException {
-        Thread.sleep(500);
+        wait.until(ExpectedConditions.elementToBeClickable(compraLivroPg.getSelecionaDigitalDownloadsBtn()));
         compraLivroPg.getSelecionaDigitalDownloadsBtn().click();
-        Thread.sleep(500);
+        wait.until(ExpectedConditions.elementToBeClickable(compraOutrosPage.getSelecionaDigitalDownloadsProd()));
+        compraOutrosPage.getSelecionaDigitalDownloadsProd().click();
     }
-    public void compraEletronicsAction() throws InterruptedException {
 
-        Thread.sleep(500);
-        compraLivroPg.getSelecionaEletronicsBtn().click();
-
-        Thread.sleep(500);
+    public void compraEletronicsAction() throws InterruptedException
+    {
+        espera5s();
+        wait.until(ExpectedConditions.elementToBeClickable(compraLivroPg.getSelecionaEletronicsBtn()));
+        compraLivroPg.getSelecionaEletronicsBtn().click();//tipo
+        wait.until(ExpectedConditions.elementToBeClickable(compraOutrosPage.getSelecionaCategCellphones()));
+        compraOutrosPage.getSelecionaCategCellphones().click();//categoria
+        wait.until(ExpectedConditions.elementToBeClickable(compraOutrosPage.getSelecionaProdCategCellphones()));
+        compraOutrosPage.getSelecionaProdCategCellphones().click();//produto
     }
+
     public void compraGiftCardsAction() throws InterruptedException {
-
-        Thread.sleep(500);
+        wait.until(ExpectedConditions.elementToBeClickable(compraLivroPg.getSelecionaGiftCardsBtn()));
         compraLivroPg.getSelecionaGiftCardsBtn().click();
+        wait.until(ExpectedConditions.elementToBeClickable(compraGiftCardPage.getSelecionaProdGiftCards()));
+        compraGiftCardPage.getSelecionaProdGiftCards().click();
+        wait.until(ExpectedConditions.elementToBeClickable(compraGiftCardPage.getCampoReciptNameGiftCards()));
+        compraGiftCardPage.getCampoReciptNameGiftCards().sendKeys("KLluz1");
+        wait.until(ExpectedConditions.elementToBeClickable(compraGiftCardPage.getCampoReciptEmailGiftCards()));
+        compraGiftCardPage.getCampoReciptEmailGiftCards().sendKeys("kl1@ya.brc");
+        wait.until(ExpectedConditions.elementToBeClickable(compraGiftCardPage.getCampoNameGiftCards()));
+        compraGiftCardPage.getCampoNameGiftCards().sendKeys("RoJohsen");
+        wait.until(ExpectedConditions.elementToBeClickable(compraGiftCardPage.getCampoEmailGiftCards()));
+        compraGiftCardPage.getCampoEmailGiftCards().sendKeys("kl@ya.brc");
+        espera2s();
+        wait.until(ExpectedConditions.elementToBeClickable(compraGiftCardPage.getSendGiftCardsBtn()));
+        compraGiftCardPage.getSendGiftCardsBtn().click();
+   }
 
-        Thread.sleep(500);
-    }
     public void compraJewelryAction() throws InterruptedException {
 
-        Thread.sleep(500);
+        wait.until(ExpectedConditions.elementToBeClickable(compraLivroPg.getSelecionaJewelryBtn()));
         compraLivroPg.getSelecionaJewelryBtn().click();
-
-        Thread.sleep(500);
+        wait.until(ExpectedConditions.elementToBeClickable(compraOutrosPage.getSelecionaProdJewlery()));
+        compraOutrosPage.getSelecionaProdJewlery().click();
     }
 
-    public void selecionaLivroAction() throws InterruptedException
-    {
-        Thread.sleep(3000);
-       compraLivroPg.getLivroBtn().click();
-        Thread.sleep(4000);
+    public void selecionaLivroAction() throws InterruptedException {
+        wait.until(ExpectedConditions.elementToBeClickable(compraLivroPg.getLivroBtn()));
+        compraLivroPg.getLivroBtn().click();
     }
-    public void confirmaCompraAction() throws InterruptedException
-    {
-        compraLivroPg.getCarrinhoDeCompraLInk().click();
-        Thread.sleep(5000);
+
+    public void confirmaCompraAction() throws InterruptedException {
+        wait.until(ExpectedConditions.elementToBeClickable(compraLivroPg.getLivroCompradoLink()));
         compraLivroPg.getLivroCompradoLink().click();
-        Thread.sleep(5000);
     }
 
-    public void clicaEmRegister() throws InterruptedException
-    {
+    public void clicaEmRegister() throws InterruptedException {
         compraLivroPg.getRegisterLink().click();
-        Thread.sleep(2000);
     }
 
-
-    public void clicaEmContinue() throws InterruptedException
-    {
+    public void clicaEmContinue() throws InterruptedException {
         registerPg.getContinueRegistroBtn().click();
-        Thread.sleep(2000);
     }
-
-
     public void selecionaGenderMale() throws InterruptedException {
 
         this.registerPg = new RegisterPage(webDriver);
-        Thread.sleep(1000);
+        wait.until(ExpectedConditions.elementToBeClickable(registerPg.getGenderMalesRadioBtn()));
         registerPg.getGenderMalesRadioBtn().click();
-        Thread.sleep(1000);
+    }
+    public void preencheCamposReg() throws InterruptedException {
+        registerPg.getFirstNameCampo().sendKeys("chris");
+        wait.until(ExpectedConditions.elementToBeClickable(registerPg.getLastNameCampo()));
+        registerPg.getLastNameCampo().sendKeys("Rosen");
+        Random rand = new Random();
+        registerPg.getEmailCampo().sendKeys("cr1982" + String.valueOf(rand.nextInt(10000000)) + "@yahoo.com");
+        wait.until(ExpectedConditions.elementToBeClickable(registerPg.getPasswordCampo()));
+        registerPg.getPasswordCampo().sendKeys("289821");
+        registerPg.getConfirmPasswordCampo().sendKeys("289821");
+        wait.until(ExpectedConditions.elementToBeClickable(registerPg.getFinalizaRegistroBtn()));
+        registerPg.getFinalizaRegistroBtn().click();
     }
 
-    public void preencheCamposReg() throws InterruptedException
+    public void pegaQtdCarrinho() throws InterruptedException {
+        wait.until(ExpectedConditions.elementToBeClickable(compraOutrosPage.getTxtQtdProd()));
+       String qtdProdSt = compraOutrosPage.getTxtQtdProd().getText();
+        System.out.println("pegaQtdCarrinho : "+qtdProdSt);
+        assertEquals("(11)", qtdProdSt);
+
+    }
+
+    public void entraNoCarrinho() throws InterruptedException {
+        wait.until(ExpectedConditions.elementToBeClickable(compraOutrosPage.getCarrinhoDeCompraLink()));
+        compraOutrosPage.getCarrinhoDeCompraLink().click();
+
+    }
+
+    public ArrayList<WebElement> selecionaTodosProdutos() throws InterruptedException
     {
-        registerPg.getFirstNameCampo().sendKeys("chris");
-        Thread.sleep(500);
-        registerPg.getLastNameCampo().sendKeys("Rosen");
-        Thread.sleep(500);
-        registerPg.getEmailCampo().sendKeys("cr19822@yahoo.com");
-        Thread.sleep(500);
-        registerPg.getPasswordCampo().sendKeys("289821");
-        Thread.sleep(500);
-        registerPg.getConfirmPasswordCampo().sendKeys("289821");
-        Thread.sleep(500);
-        registerPg.getFinalizaRegistroBtn().click();
-        Thread.sleep(5000);
+        int qtdProdutos = verificaQtdProd();
+        String xpath = "(//input[@value='Add to cart'])[";
+        String xpath2 = "]";
+        int i = 2;
+        ArrayList<WebElement> weArray = new ArrayList<>();
+        while (i < qtdProdutos) {
+            String xpathFinal = xpath + String.valueOf(i) + xpath2;
+            System.out.println(xpathFinal);
+            WebElement weIt = webDriver.findElement(By.xpath(xpathFinal));
+            weArray.add(weIt);
+            i++;
+        }
+        int i2 = 0;
+        while (i2<qtdProdutos-2)
+        {
+            espera2s();
+            WebElement weIt =weArray.get(i2);
+            wait.until(ExpectedConditions.elementToBeClickable(weIt));
+            weIt.click();
+            i2++;
+        }
+        return weArray;
+    }
 
-
+    public int verificaQtdProd()
+    {
+        List<WebElement> webElements = new ArrayList<WebElement>();
+        webElements =  webDriver.findElements(By.className("item-box"));
+        System.out.println("verificaQtdProd - "+String.valueOf(webElements.size()));
+        return webElements.size();
     }
 }

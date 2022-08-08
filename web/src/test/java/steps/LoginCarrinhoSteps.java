@@ -1,13 +1,12 @@
 package steps;
 
-import cucumber.api.java.pt.Dado;
 import cucumber.api.java.pt.E;
 import cucumber.api.java.pt.Entao;
-import funcionalidades.LoginCarrinhoFuncionalidade;
+import funcionalidades.LoginENewsletterFuncionalidade;
 
 public class LoginCarrinhoSteps
 {
-    private LoginCarrinhoFuncionalidade loginFuncionalidade= new LoginCarrinhoFuncionalidade();
+    private LoginENewsletterFuncionalidade loginFuncionalidade= new LoginENewsletterFuncionalidade();
 
 
     @E("^clico em login$")

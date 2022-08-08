@@ -54,8 +54,25 @@ public class CompraLivroSteps {
         compralivro.clicaEmContinue();
     }
 
-    @E("^clico em cada menu$")
-    public void clicoEmCadaMenu() throws InterruptedException {
+    @E("^clico em cada menu selecionando um produto de cada menu$")
+    public void clicoEmCadaMenuSelecionandoUmProdutoDeCadaMenu() throws InterruptedException {
         compralivro.compraVariosProdAction();
+    }
+
+    @E("^clico em cada menu selecionando todos produtos de cada menu$")
+    public void clicoEmCadaMenuSelecionandoTodosProdutosDeCadaMenu() throws InterruptedException {
+        compralivro.compraTodosProdAction();
+    }
+
+    @Entao("^site adiciona os produtos ao carrinho de compras$")
+    public void siteAdicionaOsProdutosAoCarrinhoDeCompras() throws InterruptedException {
+        compralivro.entraNoCarrinho();
+    }
+
+    @Entao("^site adiciona os produtos \\(todos\\) ao carrinho de compras$")
+    public void siteAdicionaOsProdutosTodosAoCarrinhoDeCompras() throws InterruptedException {
+        compralivro.pegaQtdCarrinho();
+        compralivro.entraNoCarrinho();
+
     }
 }

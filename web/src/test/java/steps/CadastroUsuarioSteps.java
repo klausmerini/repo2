@@ -1,12 +1,11 @@
 package steps;
 
-import cucumber.api.java.en.Given;
 import cucumber.api.java.pt.Dado;
 import cucumber.api.java.pt.Entao;
 import cucumber.api.java.pt.Quando;
 import funcionalidades.AdicionarContasFuncionalidade;
 import funcionalidades.CompraLivroFuncionalidade;
-import funcionalidades.LoginFuncionalidade;
+import funcionalidades.ORIGINALLoginFuncionalidade;
 
 import java.awt.*;
 import java.io.IOException;
@@ -15,14 +14,14 @@ import static org.junit.Assert.assertEquals;
 
 public class CadastroUsuarioSteps {
 
-    private LoginFuncionalidade login;
+    private ORIGINALLoginFuncionalidade login;
     private AdicionarContasFuncionalidade addContas;
 
     private CompraLivroFuncionalidade compralivro;
 
 
     public CadastroUsuarioSteps() {
-        this.login = new LoginFuncionalidade();
+        this.login = new ORIGINALLoginFuncionalidade();
         this.addContas = new AdicionarContasFuncionalidade();
     }
 

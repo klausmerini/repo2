@@ -7,7 +7,7 @@
       },
       {
         "line": 2,
-        "value": "#Author: Rafael Lima"
+        "value": "#Author: Klaus Merini"
       },
       {
         "line": 3,
@@ -24,7 +24,7 @@
         "before": [
           {
             "result": {
-              "duration": 2267315400,
+              "duration": 2232471900,
               "status": "passed"
             },
             "match": {
@@ -32,14 +32,14 @@
             }
           }
         ],
-        "line": 32,
+        "line": 39,
         "name": "Comprar de todos menus",
         "description": "",
         "id": "comprar-livro;comprar-de-todos-menus",
         "after": [
           {
             "result": {
-              "duration": 1016701800,
+              "duration": 1083260900,
               "status": "passed"
             },
             "match": {
@@ -52,10 +52,10 @@
         "steps": [
           {
             "result": {
-              "duration": 9117533200,
+              "duration": 12227343400,
               "status": "passed"
             },
-            "line": 33,
+            "line": 40,
             "name": "que estou no site demowebshop",
             "match": {
               "location": "CompraLivroSteps.que_estou_no_site_demowebshop()"
@@ -64,38 +64,32 @@
           },
           {
             "result": {
-              "duration": 63760347800,
+              "duration": 46164744500,
               "status": "passed"
             },
-            "line": 34,
-            "name": "clico em cada menu",
+            "line": 41,
+            "name": "clico em cada menu selecionando todos produtos de cada menu",
             "match": {
-              "location": "CompraLivroSteps.clicoEmCadaMenu()"
+              "location": "CompraLivroSteps.clicoEmCadaMenuSelecionandoTodosProdutosDeCadaMenu()"
             },
             "keyword": "E "
           },
           {
             "result": {
-              "status": "undefined"
+              "duration": 1560405300,
+              "status": "passed"
             },
-            "line": 35,
-            "name": "seleciono um produto de cada menu",
-            "match": {},
-            "keyword": "Entao "
-          },
-          {
-            "result": {
-              "status": "undefined"
+            "line": 42,
+            "name": "site adiciona os produtos (todos) ao carrinho de compras",
+            "match": {
+              "location": "CompraLivroSteps.siteAdicionaOsProdutosTodosAoCarrinhoDeCompras()"
             },
-            "line": 36,
-            "name": "site adiciona os produtos ao carrnho e compras",
-            "match": {},
             "keyword": "Entao "
           }
         ],
         "tags": [
           {
-            "line": 31,
+            "line": 38,
             "name": "@compratudo"
           }
         ]
@@ -105,7 +99,7 @@
     "description": "",
     "id": "comprar-livro",
     "keyword": "Funcionalidade",
-    "uri": "login.feature",
+    "uri": "carrinho.feature",
     "tags": [
       {
         "line": 6,

@@ -34,27 +34,13 @@ public class CompraOutrosPage {
     @FindBy(xpath = "(//input[@value='Add to cart'])[2]")
     private WebElement selecionaProdJewlery;
 
-    @FindBy(xpath = "//input[@value='Add to cart']")
-    private WebElement selecionaProdGiftCards;
+
+    @FindBy(xpath = "//li[@id='topcartlink']/a/span")
+    private WebElement carrinhoDeCompraLink;
 
 
-    @FindBy(id = "giftcard_1_RecipientName")
-    private WebElement campoReciptNameGiftCards;
-
-
-
-    @FindBy(id = "giftcard_1_RecipientEmail")
-    private WebElement campoReciptEmailGiftCards;
-
-    @FindBy(xpath = "//input[@id='add-to-cart-button-1']")
-    private WebElement sendGiftCardsBtn;
-
-    @FindBy(id = "giftcard_1_SenderName")
-    private WebElement campoNameGiftCards;
-
-
-    @FindBy(id = "giftcard_1_SenderEmail")
-    private WebElement campoEmailGiftCards;
+    @FindBy(xpath = "//*[@id=\"topcartlink\"]/a/span[2]")
+    private WebElement txtQtdProd;
 
 
     public CompraOutrosPage(WebDriver driver) {
@@ -95,31 +81,13 @@ public class CompraOutrosPage {
         return selecionaProdJewlery;
     }
 
-    public WebElement getSelecionaProdGiftCards() {
-        return selecionaProdGiftCards;
+    public WebElement getCarrinhoDeCompraLink() {
+        return carrinhoDeCompraLink;
+    }
+
+    public WebElement getTxtQtdProd() {
+        return txtQtdProd;
     }
 
 
-    public WebElement getCampoReciptNameGiftCards() {
-        return campoReciptNameGiftCards;
-    }
-
-    public WebElement getCampoReciptEmailGiftCards() {
-        return campoReciptEmailGiftCards;
-    }
-
-
-    public WebElement getSendGiftCardsBtn() {
-        return sendGiftCardsBtn;
-    }
-
-
-
-    public WebElement getCampoNameGiftCards() {
-        return campoNameGiftCards;
-    }
-
-    public WebElement getCampoEmailGiftCards() {
-        return campoEmailGiftCards;
-    }
 }
