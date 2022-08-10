@@ -4,7 +4,7 @@ import cucumber.api.java.pt.Dado;
 import cucumber.api.java.pt.Entao;
 import cucumber.api.java.pt.Quando;
 import funcionalidades.AdicionarContasFuncionalidade;
-import funcionalidades.CompraLivroFuncionalidade;
+import funcionalidades.CarrinhoDeComprasFuncionalidade;
 import funcionalidades.ORIGINALLoginFuncionalidade;
 
 import java.awt.*;
@@ -17,7 +17,7 @@ public class CadastroUsuarioSteps {
     private ORIGINALLoginFuncionalidade login;
     private AdicionarContasFuncionalidade addContas;
 
-    private CompraLivroFuncionalidade compralivro;
+    private CarrinhoDeComprasFuncionalidade compralivro;
 
 
     public CadastroUsuarioSteps() {

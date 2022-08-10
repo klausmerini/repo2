@@ -50,8 +50,6 @@ public class ComprarLivroPage
     @FindBy(linkText = "Computing and Internet")
     private WebElement livroCompradoLink;
 
-    @FindBy(linkText = "Register")
-    private WebElement registerLink;
 
     public ComprarLivroPage(WebDriver driver)
     {
@@ -68,10 +66,6 @@ public class ComprarLivroPage
 
     public WebElement getCarrinhoDeCompraLInk() {
         return carrinhoDeCompraLInk;
-    }
-
-    public WebElement getRegisterLink() {
-        return registerLink;
     }
 
 

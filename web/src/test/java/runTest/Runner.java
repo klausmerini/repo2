@@ -15,7 +15,7 @@ import org.junit.runner.RunWith;
         features = {"src/test/resources/Features"},
    //     glue = {"src/test/java/steps"},
         glue = {"steps"},
-        tags = {"@compratudo"})
+        tags = {"@web"})
 
 
 public class Runner {

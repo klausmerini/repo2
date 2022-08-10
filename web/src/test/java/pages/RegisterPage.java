@@ -7,6 +7,13 @@ import org.openqa.selenium.support.PageFactory;
 
 public class RegisterPage
 {
+    public RegisterPage(WebDriver driver)
+    {
+        PageFactory.initElements(driver, this);
+    }
+    @FindBy(linkText = "Register")
+    private WebElement registerLink;
+
     @FindBy(id = "gender-male")
     private WebElement genderMalesRadioBtn;
     @FindBy(id = "FirstName")
@@ -46,10 +53,7 @@ public class RegisterPage
         return passwordCampo;
     }
 
-    public RegisterPage(WebDriver driver)
-    {
-        PageFactory.initElements(driver, this);
-    }
+
 
 
 
@@ -65,8 +69,10 @@ public class RegisterPage
         return finalizaRegistroBtn;
     }
 
+    public WebElement getContinueRegistroBtn() {        return continueRegistroBtn;    }
 
-    public WebElement getContinueRegistroBtn() {
-        return continueRegistroBtn;
+    public WebElement getRegisterLink() {
+        return registerLink;
     }
+
 }

@@ -43,6 +43,8 @@ public class CompraOutrosPage {
     private WebElement txtQtdProd;
 
 
+
+
     public CompraOutrosPage(WebDriver driver) {
         PageFactory.initElements(driver, this);
     }
@@ -88,6 +90,7 @@ public class CompraOutrosPage {
     public WebElement getTxtQtdProd() {
         return txtQtdProd;
     }
+
 
 
 }

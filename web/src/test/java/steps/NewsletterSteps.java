@@ -1,13 +1,12 @@
 package steps;
 
-import cucumber.api.PendingException;
 import cucumber.api.java.pt.E;
 import cucumber.api.java.pt.Entao;
-import funcionalidades.LoginENewsletterFuncionalidade;
+import funcionalidades.NewsletterFuncionalidade;
 
 public class NewsletterSteps
 {
-    private LoginENewsletterFuncionalidade newsletterFuncionalidade= new LoginENewsletterFuncionalidade();
+    private NewsletterFuncionalidade newsletterFuncionalidade= new NewsletterFuncionalidade();
 
     @Entao("^preencho o campo 'Sign up for our newsletter'$")
     public void preencho_o_campo_Sign_up_for_our_newsletter() throws Throwable
@@ -22,6 +21,6 @@ public class NewsletterSteps
 
     @Entao("^site exibe mensagem confirmando inscrição$")
     public void site_exibe_mensagem_confirmando_inscrição() throws Throwable {
-      newsletterFuncionalidade.verificaResposta();
+      newsletterFuncionalidade.verificaRespostaNewsletter();
     }
 }
