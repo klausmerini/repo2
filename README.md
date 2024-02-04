@@ -1,6 +1,6 @@
 # repo2
 
-Testes de API REST (Representational State Transfer)Assured com Cucumber. Escritos em Java, utilizando o Maven.
+Testes de API REST (Representational State Transfer)Assured com Cucumber. Escritos em Java, utilizando o Maven. Testes em simulações de APIs fakerest.
 
 A URL é setada no arquivo hom.properties
 
